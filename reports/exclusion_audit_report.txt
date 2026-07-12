@@ -23,8 +23,10 @@ questions were manually entered into the product during internal testing,
 predating the recorded evaluation campaigns; three of the four originate
 from a single internal account. Zero matches occur in organic customer
 traffic. Internal test accounts are excluded from training extraction
-(author attestation; the four flagged session/user IDs are published in
-exclusion_audit_flags.csv so this exclusion is checkable item-by-item).
+(author attestation). The four flagged rows are published in
+exclusion_audit_flags.csv under pseudonymous labels (internal-account-1/2,
+internal-session-1/2/3); the underlying identifiers are held privately and
+available to reviewers for item-by-item verification on request.
 
 Confirmed evaluation items in the training-signal corpus after internal-
 account exclusion: 0

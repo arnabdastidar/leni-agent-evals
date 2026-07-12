@@ -16,6 +16,34 @@ Findings on the 2026-07 export: 25/803 trajectories (12 distinct tasks)
 contain such URLs; 7 runs in the final pass@1 selection are flagged, all
 scored correct; conservative pass@1 lower bound 117/165 = 70.9% against the
 124/165 = 75.2% headline.
+
+WHAT THE FLAGS REPRESENT (interpretation)
+-----------------------------------------
+The flags are NOT verification-loop failures, and they are NOT
+infrastructure artifacts. Infrastructure faults (API failures, budget
+limits, load-balancer errors encountered during the campaigns) manifest in
+this dataset as *unanswered runs* (model_final_answer empty), which are
+reported separately; they never produce URL matches inside a trajectory.
+
+The flags are a data-exposure side effect of evaluating a *public*
+validation set with a web-searching agent: GAIA validation questions exist
+verbatim on the public web (mirrors, course materials, derived datasets),
+so the agent's ordinary keyword searches sometimes surface those mirror
+pages among candidate results.
+
+Manual classification of all 25 flags by trajectory context:
+  - 16 search-listing-only: the mirror URL appeared inside a web-search
+    result list and was neither fetched nor cited;
+  - 9 cited-in-sources: a mirror URL appears among the answer's cited
+    sources (higher risk; the agent surfaced the page as a reference);
+  - 0 fetched: no trajectory shows a fetch/browse action targeting a
+    mirror page.
+Of the 7 flagged runs in the pass@1 selection: 5 listing-only, 2 cited.
+Tiered sensitivity bounds implied: excluding cited-in-sources runs only,
+122/165 = 73.9%; excluding all flagged runs, 117/165 = 70.9% (the
+conservative bound reported in the paper). Anyone can re-adjudicate the
+"URL seen" vs "answer used" boundary from the raw trajectories in
+data/eval_runs_gaia.csv.
 """
 import csv
 import re

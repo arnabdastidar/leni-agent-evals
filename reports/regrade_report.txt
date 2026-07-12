@@ -1,0 +1,17 @@
+Validation: 218/218 agreement with database-resident grades
+
+Per-campaign, per-level (answered runs / correct):
+      date  level  runs  answered  correct
+2026-03-26      1   119         0        0
+2026-03-27      1    53        52       44
+2026-03-27      2    86        82       62
+2026-03-28      3    26        20       12
+2026-04-07      1    53        52       43
+2026-04-09      1   106       101       74
+2026-04-10      1   159       155      113
+2026-04-20      2   172        86       65
+2026-04-20      3    26        25       15
+2026-04-27      3     3         3        1
+
+pass@1 (last answered attempt, final campaigns): L1: 44/53, L2: 65/86, L3: 15/26  overall 124/165 = 75.2%
+best-of-all-runs: L1: 48/53, L2: 72/86, L3: 17/26  overall 137/165 = 83.0%

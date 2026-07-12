@@ -14,6 +14,8 @@ evidence against post-hoc selection.
 
 ```
 paper.pdf                        current preprint draft
+experiments_protocol.md          pre-registered designs for planned
+                                 follow-up experiments (frozen before runs)
 LICENSE.md                       MIT (scripts) / CC BY 4.0 (data)
 data/
   benchmarks.csv                 benchmark registry (GAIA, SpreadsheetBench,

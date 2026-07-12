@@ -45,7 +45,10 @@ reports/
   regrade_report.txt             output of regrade_gaia.py
   gaia_regraded_runs.csv         per-run re-grades, all 803 runs
   gaia_retrieval_flags.csv       per-run retrieval-audit flags
-  exclusion_audit_report.txt     (added after the internal corpus scan)
+  exclusion_audit_report.txt     question-corpus scan: 4/30,104 flags, all
+                                 internal test traffic; 0 eval items in the
+                                 training-signal corpus
+  exclusion_audit_flags.csv      per-pair flags with session/account IDs
 ```
 
 ## Reproducing the paper's numbers

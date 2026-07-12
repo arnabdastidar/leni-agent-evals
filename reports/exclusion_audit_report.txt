@@ -1,0 +1,35 @@
+Training-corpus exclusion audit — question/prompt corpus scan
+Date: 2026-07-11
+Method: word 8-gram containment (flag at >=3 shared 8-grams or any shared
+13-gram), per scripts/audit_training_exclusion.py, inverted-index
+implementation for corpus scale.
+
+Corpus scanned : production user-message corpus (source of the user-eval
+                 training signal), 30,104 user messages
+Items checked  : 365 evaluation items
+                 (100 BullshitBench v2, 165 GAIA validation, 100 DRACO)
+
+RESULTS
+  docs_scanned        30,104
+  items_checked       365
+  flagged_pairs       4
+  flagged_items       3
+
+ADJUDICATION
+All four flagged messages are near-verbatim benchmark questions (50-112
+shared 8-grams each): two GAIA validation items and one DRACO item. All four
+trace to sessions dated 2026-03-02 to 2026-03-17, in which benchmark
+questions were manually entered into the product during internal testing,
+predating the recorded evaluation campaigns; three of the four originate
+from a single internal account. Zero matches occur in organic customer
+traffic. Internal test accounts are excluded from training extraction
+(author attestation; the four flagged session/user IDs are published in
+exclusion_audit_flags.csv so this exclusion is checkable item-by-item).
+
+Confirmed evaluation items in the training-signal corpus after internal-
+account exclusion: 0
+
+SCOPE
+This scan covers the question/prompt corpus. The workbook-edit-trace and
+tool-trajectory components of the training corpus are sweepable with the
+same script and thresholds; their counts will be appended here when run.

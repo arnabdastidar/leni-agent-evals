@@ -53,7 +53,12 @@ reports/
 
 ## Reproducing the paper's numbers
 
+Requires Python 3.10+ and pandas (`pip install -r requirements.txt`).
+The scripts read the CSVs from the current directory, so run them from
+`data/`:
+
 ```
+pip install -r requirements.txt
 cd data
 python3 ../scripts/regrade_gaia.py           # GAIA pass@1 and best-of-k
 python3 ../scripts/audit_gaia_retrieval.py   # retrieval flags + lower bound

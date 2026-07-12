@@ -1,0 +1,4 @@
+# Python 3.10+; pandas is the only third-party dependency for the
+# analysis/audit scripts (regrade_gaia.py, audit_gaia_retrieval.py,
+# audit_training_exclusion.py). Everything else is standard library.
+pandas>=1.5
